@@ -16,7 +16,7 @@ function Header() {
   }
 
   return(
-    <Menu fluid >
+    <Menu stackable fluid >
       <Container text>
 
         <Link href="/" >
