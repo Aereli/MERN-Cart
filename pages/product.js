@@ -11,13 +11,11 @@ function Product({ product }) {
       < ProductSummary {...product} />
       < ProductAttributes {...product} />
     </>
-  ) 
-    
+  )   
 }
 
 Product.getInitialProps = async ({ query: { _id }}) => {
   // const url = `http://localhost/3000/api/product?_id=${_id}`
-
   const url = `${baseUrl}/api/product`
   //this params is the same as above interpolation
   const payload = { params: { _id } }
