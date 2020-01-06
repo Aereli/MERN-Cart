@@ -9,7 +9,7 @@ Router.onRouteChangeError = () => NProgress.done()
 
 function Header() {
   const router = useRouter()
-  const user = false
+  const user = true
 
   function isActive(route){
     return route === router.pathname
@@ -40,16 +40,18 @@ function Header() {
           </Menu.Item>
         </Link>
 
-        { user && <Link href="/create" >
-          <Menu.Item header active={isActive('/create')}>
-            <Icon 
-              name="add square"
-              size="big"
-            />
-            Create
-          </Menu.Item>
-        </Link> }
-        
+        {user && (
+          <Link href="/create" >
+            <Menu.Item header active={isActive('/create')}>
+              <Icon 
+                name="add square"
+                size="big"
+              />
+              Create
+            </Menu.Item>
+          </Link>
+        )}
+      
         {user ? (<>
         <Link href="/account" > 
           <Menu.Item header active={isActive('/account')}>
@@ -97,4 +99,4 @@ function Header() {
   )
 }
 
-export default Header;
+export default Header
