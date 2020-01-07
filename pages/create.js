@@ -5,7 +5,7 @@ import baseUrl from '../utils/baseUrl'
 import catchErrors from '../utils/catchErrors'
 
 const INITIAL_PRODUCT = {
-  name: "",
+  name: "", 
   price: "",
   media: "",
   description: ""
