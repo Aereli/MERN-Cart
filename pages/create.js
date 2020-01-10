@@ -17,7 +17,7 @@ function CreateProduct() {
   const [success, setSuccess] = React.useState(false)
   const [loading, setLoading] = React.useState(false)
   const [disabled, setDisabled] = React.useState(true)
-  cosnt [error, setError] = React.useState("")
+  const [error, setError] = React.useState("")
 
   React.useEffect(() => {
     const isProduct = Object.values(product).every(el => Boolean(el))
@@ -48,6 +48,7 @@ function CreateProduct() {
     try {
       event.preventDefault()
       setLoading(true)
+      setError('')
       const mediaUrl = await handleImageUpload ()
       const url = `${baseUrl}/api/product`
       const { name, price, description } = product
