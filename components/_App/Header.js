@@ -9,9 +9,12 @@ Router.onRouteChangeError = () => NProgress.done()
 
 function Header({ user }) {
   const router = useRouter()
+  const isRoot = user && user.role === 'root'
+  const isAdmin = user && user.role === 'admin'
+  const isRootOrAdmin = isRoot || isAdmin
 
   function isActive(route){
-    return route === router.pathname
+    return route === router.pathname 
   }
 
   return(
@@ -39,7 +42,7 @@ function Header({ user }) {
           </Menu.Item>
         </Link>
 
-        {user && (
+        {isRootOrAdmin && (
           <Link href="/create" >
             <Menu.Item header active={isActive('/create')}>
               <Icon 

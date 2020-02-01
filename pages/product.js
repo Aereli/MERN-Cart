@@ -3,13 +3,12 @@ import ProductSummary from '../components/Product/ProductSummary'
 import ProductAttributes from '../components/Product/ProductAttributes'
 import baseUrl from '../utils/baseUrl'
 
-function Product({ product }) {
-  console.log({product})
+function Product({ product, user}) {
 
   return (
     <>
       < ProductSummary {...product} />
-      < ProductAttributes {...product} />
+      < ProductAttributes user={user} {...product} />
     </>
   )   
 }
