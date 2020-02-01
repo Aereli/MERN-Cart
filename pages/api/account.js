@@ -1,4 +1,4 @@
-import user from '../../models/User'
+import User from '../../models/User'
 import jwt from 'jsonwebtoken'
 import connectDb from '../../utils/connectDb'
 
@@ -10,7 +10,7 @@ export default async (req, res) => {
   }
 
   try {
-    const { userId} = jwt.verify(req.headers.authorization, process.env.JWT_SECRET)
+    const { userId } = jwt.verify(req.headers.authorization, process.env.JWT_SECRET)
     const user = await User.findOne({ _id: userId})
     if (user){
       res.status(200).json(user)
