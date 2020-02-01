@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import Router , { useRouter } from 'next/router'
 import NProgress from 'nprogress'
+import { handleLogout } from '../../utils/auth'
 
 Router.onRouteChangeStart = () => NProgress.start()
 Router.onRouteChangeComplete = () => NProgress.done()
@@ -65,7 +66,7 @@ function Header({ user }) {
           </Menu.Item>
         </Link>
 
-        <Menu.Item header>
+        <Menu.Item onClick={handleLogout} header>
           <Icon
             name="sign out"
             size="big"
